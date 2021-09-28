@@ -1,0 +1,6 @@
+{
+  "project": "Tomahawk",
+  "ttwcs": "10.1.1.3",
+  "testMgr": "10.1.1.61:8080",
+  "analysisMgr": "10.1.1.62:50405"
+}

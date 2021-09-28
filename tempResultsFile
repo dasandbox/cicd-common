@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analysis Results</title>
+  <link href='../../../css/foundation-atrt-reports.min.css' rel='stylesheet'>
+</head>
+<body>
+<h2>Analysis Results</h2>
+<table class='table' style='width:100%'>
+  <tr>
+    <td><b><a href="static_results/DX20210916_160324/index.html">DX20210916_160324</a></b></td>
+    <td>Project: Tomahawk; Baselines: *</td>
+  </tr>
+  <tr>
+    <td><b><a href="static_results/DX20210914_194210/index.html">DX20210914_194210</a></b></td>
+    <td>Project: Tomahawk; Baselines: *</td>
+  </tr>
+  <tr>
+    <td><b><a href="static_results/repeat_test/index.html">repeat_test</a></b></td>
+    <td>Project: Tomahawk; Baselines: *</td>
+  </tr>
+  <tr>
+    <td><b><a href="static_results/DX20210914_190542/index.html">DX20210914_190542</a></b></td>
+    <td>Project: Tomahawk; Baselines: *</td>
+  </tr>
+</table>
+4 result(s). Refreshing in <span id='counter'>3</span>...
+<script>
+  setInterval(function() {
+    var div = document.querySelector('#counter');
+    var count = div.textContent * 1 - 1;
+    if (count <= 0) {
+      window.location.replace('../../../reaper/static_results');
+    }
+    div.textContent = count;
+  }, 1000);
+</script>
+</body>
+</html>

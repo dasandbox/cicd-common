@@ -1,0 +1,32 @@
+Sample file formats
+
+# tomahawk-tpid.txt
+b3afea9f-9d6f-4341-912f-ea48f77f9917
+
+# tomahawk-tcid.txt
+85c13852-e613-48ae-8a7a-b907863d5601:Basic GoPath_TC
+69b563da-0346-462d-8280-15605317f935:Block IV Non-GPS_TC
+c54735f3-4a45-4fed-8d5f-9a9b7bc62acc:Auto GPS-SDL_TC
+d1ca08a5-d69f-4216-bde0-ec3b2347a041:Allocation Required_TC
+642bd843-6fb6-4699-945c-11a19eba39fe:Specific Tasks_TC
+47959eaf-5274-47b7-a74b-f32d1fb46ce1:Allocation Mode_TC
+
+
+curl -L http://10.2.65.61:8080/Project | jq '. | { project: .values[].project_name, proj_id: .values[].project_id } '
+
+curl -L http://10.2.65.61:8080/Project | jq '.values[] | { project: .project_name, proj_id: .project_id } '
+
+curl -L http://10.2.65.61:8080/Project | jq  '.values[] | select(.project_name=="Tomahawk Project") | .project_id '
+
+curl -sL http://10.2.65.61:8080/Project | jq -r '.values[] | select(.project_name=="Tomahawk Project") | "\(.project_name) | \(.project_id)"'
+
+curl -sL http://10.2.65.61:8080/Project/Testcases?project_id="b3afea9f-9d6f-4341-912f-ea48f77f9917" | jq  '.values[] | {"1": .testcase_name}'
+
+curl -sL http://10.2.65.61:8080/Project/Testcases?project_id="b3afea9f-9d6f-4341-912f-ea48f77f9917" | jq  '.values[] | {"": .testcase_name}' |egrep -v "{|}"
+
+curl -sL http://10.2.65.61:8080/Project/Testcases?project_id="b3afea9f-9d6f-4341-912f-ea48f77f9917" | jq -r '.values[] | "\(.testcase_name) | \(.testcase_id)"'
+
+curl -sL http://10.2.65.61:8080/Project/Testcases?project_id="b3afea9f-9d6f-4341-912f-ea48f77f9917" | jq -r '.values[] | "\(.testcase_name) | \(.testcase_id)"'
+
+# Print 2 lines
+curl -sL http://10.2.65.61:8080/Project/Testcases?project_id="b3afea9f-9d6f-4341-912f-ea48f77f9917" | jq -r '.values[] | .testcase_id, .testcase_name'
