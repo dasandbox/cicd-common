@@ -14,7 +14,7 @@ fi
 source ./readConfig.sh
 echo "AMSERVER=${AMSERVER}"
 
-url="http://${AMSERVER}/reaper/local_etl?etl_folder=./Tomahawk&analysis_id=${idtag}&catalog_file_dir=catalog&data_file_dir=data"
+url="http://${AMSERVER}/reaper/local_etl?etl_folder=./Tomahawk&analysis_id=${idtag}&catalog_file_dir=5.6.0_mm_catalog&data_file_dir=data"
 echo "url=${url}"
 
 # Make local_etl request to read data files
