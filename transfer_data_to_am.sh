@@ -9,7 +9,7 @@ CACHE="/home/jenkins/WinShare"
 
 # Location of REAPER cache
 # Note the ATRT version in the path, so path may change with new zip file ...
-AM_DATA="C:\\Users\\ttwcs\\Programs\\ATRT_AM_4.37.3\\RELEASE\\src\\analysis\\analysis.product\\target\\products\\com.idtus.atrt.analysis.all-rest\\win32\\win32\\x86_64\\reaper_cache\\etl\\local\\Tomahawk\\data"
+AM_DATA="C:\\Users\\ttwcs\\Programs\\ATRT_AM\\RELEASE\\src\\analysis\\analysis.product\\target\\products\\com.idtus.atrt.analysis.all-rest\\win32\\win32\\x86_64\\reaper_cache\\etl\\local\\Tomahawk\\data"
 
 # TTWCS DX data locations
 # Data files may be in one of the following locations
