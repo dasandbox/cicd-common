@@ -3,18 +3,26 @@
 me=$(basename $0)
 #echo "me: ${me} $@"
 
-# Use timestamp as default dataset/analysis id
+# The CI/CD pipeline will name the data/analysis same as the current DX file
+# This script can use a timestamp as the dataset/analysis if nothing supplied
 idtag=$(date +%Y%m%d_%H%M%S)
 if [ $# -eq 1 ]; then
   # Use user supplied name
   idtag="${1}"
 fi
 
+# The CI/CD pipeline will support TTWCS baselines 5.6.0 and 5.6.1
+baseline=TTWCS_Baseline_5_6_1
+if [ $# -eq 2 ]; then
+  # Use user supplied baseline
+  baseline="${2}"
+fi
+
 # Read config settings
 source ./readConfig.sh
 #echo "AMSERVER=${AMSERVER}"
 
-url="http://${AMSERVER}/reaper/local_analysis?analysis_folder=Tomahawk&baseline=*&behaviors_script=Tomahawk-call-behaviors.py&events_script=Tomahawk-event-reconstruction.py&dataset=${idtag}&analysis_id=${idtag}"
+url="http://${AMSERVER}/reaper/local_analysis?analysis_folder=Tomahawk&baseline=${baseline}&behaviors_script=Tomahawk-call-behaviors.py&events_script=Tomahawk-event-reconstruction.py&dataset=${idtag}&analysis_id=${idtag}"
 echo "${url}"
 
 # Make local_analysis request to run data analysis
