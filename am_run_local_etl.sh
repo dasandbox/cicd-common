@@ -6,14 +6,14 @@ me=$(basename $0)
 # The CI/CD pipeline will name the data/analysis same as the current DX file
 # This script can use a timestamp as the dataset/analysis if nothing supplied
 idtag=$(date +%Y%m%d_%H%M%S)
-if [ $# -eq 1 ]; then
+if [ $# -ge 1 ]; then
   # Use user supplied name
   idtag="${1}"
 fi
 
 # The CI/CD pipeline will support TTWCS baselines 5.6.0 and 5.6.1
 baseline=TTWCS_Baseline_5_6_1
-if [ $# -eq 2 ]; then
+if [ $# -ge 2 ]; then
   # Use user supplied baseline
   baseline="${2}"
 fi
